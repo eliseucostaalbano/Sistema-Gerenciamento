@@ -1,11 +1,20 @@
-import {BrowserRouter} from 'react-router-dom'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { BrowserRouter } from "react-router-dom";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { ClerkProvider} from '@clerk/clerk-react'
 
+// Import your Publishable Key
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
-createRoot(document.getElementById('root')).render(
+if (!PUBLISHABLE_KEY) {
+  throw new Error("Adicione sua chave Clerk para o .env file");
+}
+
+createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-)
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+      <App />
+    </ClerkProvider>
+  </BrowserRouter>
+);
