@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Local = () => {
+const LocalPage = () => {
   return (
     <div>Local</div>
   )
 }
 
-export default Local
+export default LocalPage

@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Local from "./components/Local";
-import Cursos from "./components/Cursos";
-import Sobre from "./components/Sobre";
-import Contato from "./components/Contato";
+import Local from "./pages/Local";
+import Cursos from "./pages/Cursos";
+import Sobre from "./pages/Sobre";
+import Contato from "./pages/Contato";
 
 function App() {
   return (
