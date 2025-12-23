@@ -23,10 +23,10 @@ pos: "bottom-[10%] right-[5%]",
 
 
 export const features = [
-{ text: "Easy to Use", color: "green" },
-{ text: "Fast & Secure", color: "blue" },
-{ text: "24/7 Support", color: "purple" },
-{ text: "Free Updates", color: "yellow" },
+{ text: "Facil de Usar", color: "green" },
+{ text: "Rápido e Seguro", color: "blue" },
+{ text: "Suporte 24/7", color: "purple" },
+{ text: "Atualizações Gratuitas", color: "yellow" },
 ];
 
 
