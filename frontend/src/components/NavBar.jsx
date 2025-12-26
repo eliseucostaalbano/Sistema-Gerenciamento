@@ -122,7 +122,7 @@ const NavBar = () => {
                     key={item.name}
                     to={item.href}
                     end={item.href === "/"}
-                    className={({ estaAtivo }) => DesktopLinks(estaAtivo)}
+                    className={({ isActive }) => DesktopLinks(isActive)}
                   >
                     <div className="flex items-center space-x-2">
                       <Icone

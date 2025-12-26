@@ -1,7 +1,4 @@
-import {
-  coursePageStyles,
-  coursePageCustomStyles,
-} from "../assets/dummyStyles";
+import {coursePageStyles, coursePageCustomStyles} from "../assets/dummyStyles";
 import cursos from "../assets/dummyData.js";
 import { Search, SmilePlus, Star, StarHalf, User, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -65,7 +62,6 @@ const CursoPage = () => {
     : cursosFiltrados.slice(0, VISIBLE_COUNT);
   const remainingCount = Math.max(0, cursosFiltrados.length - VISIBLE_COUNT);
 
-  // Small, animated top-right toast — only shown when user clicks a course and token missing
   const showLoginToast = () => {
     toast.error("por favor, faça login para acessar este curso", {
       position: "top-right",
