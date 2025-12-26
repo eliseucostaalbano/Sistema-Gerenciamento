@@ -17,7 +17,6 @@ const cursos = [
     avaliacao: 4.8,
     categoria: "Desenvolvimento",
     preco: { original: 200, promocional: 99 },
-    gratuito: false,
     descricao:
       "Domine React desde os fundamentos até padrões avançados. Aprenda hooks, gerenciamento de estado, otimização de desempenho e arquitetura de projetos reais. Crie aplicações escaláveis usando as melhores práticas do ecossistema moderno do React.",
     aulas: [
@@ -117,7 +116,6 @@ const cursos = [
     avaliacao: 4.9,
     categoria: "Desenvolvimento",
     preco: { original: 149, promocional: 79 },
-    gratuito: false,
     descricao:
       "Aprofunde-se nos recursos modernos do JavaScript, padrões, programação assíncrona e boas práticas para código limpo e eficiente.",
     aulas: [
@@ -171,6 +169,9 @@ const cursos = [
           }
         ]
       },
+    ]
+    },
+
   {
     id: 13,
     nome: "Ciência de Dados",
@@ -179,7 +180,6 @@ const cursos = [
     avaliacao: 4.6,
     categoria: "Ciência de Dados",
     preco: { original: 229, promocional: 129 },
-    gratuito: false,
     descricao:
       "Introdução à ciência de dados com Python. Aprenda manipulação de dados com pandas, análise estatística, visualização de dados e conceitos básicos de machine learning.",
     aulas: [
@@ -236,7 +236,6 @@ const cursos = [
     avaliacao: 4.8,
     categoria: "Desenvolvimento",
     preco: { original: 169, promocional: 99 },
-    gratuito: false,
     descricao:
       "Crie aplicativos mobile multiplataforma com React Native. Aprenda padrões de interface, navegação, gerenciamento de estado e publicação em lojas.",
     aulas: [
@@ -308,7 +307,6 @@ const cursos = [
     avaliacao: 4.5,
     categoria: "Marketing",
     preco: { original: 139, promocional: 69 },
-    gratuito: false,
     descricao:
       "Domine estratégias de marketing digital como SEO, marketing de conteúdo, redes sociais e anúncios pagos.",
     aulas: [
@@ -344,7 +342,6 @@ const cursos = [
     avaliacao: 4.7,
     categoria: "Design",
     preco: { original: 159, promocional: 89 },
-    gratuito: false,
     descricao:
       "Curso completo de design gráfico cobrindo Photoshop, Illustrator, tipografia e composição visual.",
     aulas: [
@@ -416,7 +413,6 @@ const cursos = [
     avaliacao: 4.6,
     categoria: "Cloud",
     preco: { original: 189, promocional: 109 },
-    gratuito: false,
     descricao:
       "Aprenda fundamentos de computação em nuvem com AWS, Azure e Google Cloud, incluindo containers e segurança.",
     aulas: [
@@ -445,7 +441,6 @@ const cursos = [
     avaliacao: 4.9,
     categoria: "Segurança",
     preco: { original: 199, promocional: 119 },
-    gratuito: false,
     descricao:
       "Curso completo de cibersegurança cobrindo ameaças, segurança de redes, código seguro e resposta a incidentes.",
     aulas: [
@@ -465,9 +460,7 @@ const cursos = [
       }
     ]
   }
-]
-  }
-]
+];
 
 export const buscarCursoPorId = (id) =>
   cursos.find((curso) => curso.id === id);
