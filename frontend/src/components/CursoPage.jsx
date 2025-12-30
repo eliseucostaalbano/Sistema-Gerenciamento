@@ -95,10 +95,10 @@ const CursoPage = () => {
 
     if (curso.preco?.promocional != null) {
       return {
-        current: `₹${curso.preco.promocional}`,
+        current: `R$${curso.preco.promocional}`,
         original:
           curso.preco.original > curso.preco.promocional
-            ? `₹${curso.preco.original}`
+            ? `R$${curso.preco.original}`
             : null,
       };
     }
