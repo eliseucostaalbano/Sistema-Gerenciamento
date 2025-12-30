@@ -1,4 +1,4 @@
-import{ useState } from "react"
+import{ useState, useEffect } from "react"
 import { navbarStyles } from "../assets/dummyStyles"
 import logo from "../assets/logo.png"
 import { useLocation, Link } from "react-router-dom"
@@ -23,10 +23,41 @@ const Navbar = () => {
       id: "listcourse",
       label: "Cursos Lista",
       icon: ListChecks,
-      path: "/listcourse",
+      path: "/listacursos",
     },
     { id: "bookings", label: "Agendamentos", icon: ListChecks, path: "/agendamentos" },
   ];
+
+    useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 80) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("click", handleClickOutside);
+    } else {
+      document.removeEventListener("click", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isMenuOpen]);
 
   return (
     <>
