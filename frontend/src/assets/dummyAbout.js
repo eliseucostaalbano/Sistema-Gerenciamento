@@ -117,7 +117,7 @@ export const missionVisionValues = [
     dotLottie: "https://lottie.host/4cf976d2-0a1a-4017-b021-c3fe2b0a4c18/ksM0OM58Dd.lottie",
     features: [
       "Sucesso do Aluno em 1° lugar",
-      "Exelencia em Ensino",
+      "Exelência em Ensino",
       "Inovação & criatividade",
       "Comunidade & colaboração",
     ],
@@ -129,7 +129,7 @@ export const missionVisionValues = [
 export const teamMembers = [
   {
     nome: "Sarah Johnson",
-    role: "Founder & CEO",
+    role: "Fundadora & CEO",
     imagem:A1,
     bio: "15+ anos em tecnologia educacional",
     social: ["twitter", "linkedin", "github"],

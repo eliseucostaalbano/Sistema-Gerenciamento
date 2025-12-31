@@ -46,7 +46,7 @@ telefone: '+55 85 8561-9455',
 horarioTelefone: 'Seg-Sex, 9AM-6PM',
 email: 'eliseualbano57@gmail.com',
 website: 'https://3dportifolio.netlify.app/',
-designBy: 'Eliseu Costa Alabano'
+designBy: 'Eliseu Costa Albano'
 };
 
 
