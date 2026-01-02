@@ -9,7 +9,7 @@ const navItems = [
   { name: "Home", icon: Home, href: "/" },
   { name: "Cursos", icon: BookOpen, href: "/cursos" },
   { name: "Sobre", icon: BookMarked, href: "/sobre" },
-  { name: "Local", icon: Users, href: "/local" },
+  { name: "Faculdade", icon: Users, href: "/faculdade" },
   { name: "Contato", icon: Contact, href: "/contato" },
 ];
 

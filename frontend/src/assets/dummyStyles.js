@@ -665,7 +665,7 @@ export const facultyStyles = {
   
   // Experience Badge
   experienceBadge: "absolute -bottom-3 left-1/2 transform -translate-x-1/2",
-  experienceBadgeContent: "bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow-lg",
+  experienceBadgeContent: "bg-gradient-to-r from-blue-500 to-blue-900 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow-lg",
   
   // Teacher Info
   teacherInfo: "text-center mb-3 sm:mb-4 px-1",
