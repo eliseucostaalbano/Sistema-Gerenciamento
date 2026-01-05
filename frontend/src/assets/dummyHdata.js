@@ -11,9 +11,9 @@ import HC8 from "../assets/HC8.png";
 export const coursesData = [
   {
     id: 1,
-    name: "React Masterclass",
-    teacher: "Sophia Miller",
-    image: HC1,
+    nome: "React Masterclass",
+    professor: "Sophia Miller",
+    imagem: HC1,
     rating: 4.8,
     isFree: false,
     price: { original: 200, sale: 99 },
@@ -64,9 +64,9 @@ export const coursesData = [
 
   {
     id: 2,
-    name: "Frontend Crash Course",
-    teacher: "Ethan Brown",
-    image: HC2,
+    nome: "Frontend Crash Course",
+    professor: "Ethan Brown",
+    imagem: HC2,
     rating: 4.7,
     isFree: true,
     price: null,
@@ -106,9 +106,9 @@ export const coursesData = [
 
   {
     id: 3,
-    name: "Full Stack JavaScript",
-    teacher: "Noah Johnson",
-    image: HC3,
+    nome: "Full Stack JavaScript",
+    professor: "Noah Johnson",
+    imagem: HC3,
     rating: 4.7,
     isFree: false,
     price: { original: 180, sale: 89 },
@@ -149,9 +149,9 @@ export const coursesData = [
 
   {
     id: 4,
-    name: "UX/UI Design Pro",
-    teacher: "Olivia Lee",
-    image: HC4,
+    nome: "UX/UI Design Pro",
+    professor: "Olivia Lee",
+    imagem: HC4,
     rating: 4.9,
     isFree: false,
     price: { original: 250, sale: 125 },
@@ -191,9 +191,9 @@ export const coursesData = [
 
   {
     id: 5,
-    name: "Next.js Deep Dive",
-    teacher: "Liam Smith",
-    image: HC5,
+    nome: "Next.js Deep Dive",
+    professor: "Liam Smith",
+    imagem: HC5,
     rating: 4.6,
     isFree: true,
     price: null,
@@ -232,9 +232,9 @@ export const coursesData = [
 
   {
     id: 6,
-    name: "Python for Data Science",
-    teacher: "Isabella Brown",
-    image: HC6,
+    nome: "Python for Data Science",
+    professor: "Isabella Brown",
+    imagem: HC6,
     rating: 4.5,
     isFree: true,
     price: null,
@@ -275,9 +275,9 @@ export const coursesData = [
 
   {
     id: 7,
-    name: "Python for Data Science (Advance)",
-    teacher: "Isabella Brown",
-    image: HC7,
+    nome: "Python for Data Science (Advance)",
+    professor: "Isabella Brown",
+    imagem: HC7,
     rating: 4.5,
     isFree: false,
     price: { original: 190, sale: 95 },
@@ -318,9 +318,9 @@ export const coursesData = [
 
   {
     id: 8,
-    name: " JavaScript (Alternate)",
-    teacher: "Noah Johnson",
-    image: HC8,
+    nome: " JavaScript (Alternate)",
+    professor: "Noah Johnson",
+    imagem: HC8,
     rating: 4.7,
     isFree: false,
     price: { original: 180, sale: 89 },
