@@ -105,7 +105,7 @@ const CursoPage = () => {
 
     if (curso.preco?.original != null) {
       return {
-        current: `₹${curso.preco.original}`,
+        current: `R$${curso.preco.original}`,
         original: null,
       };
     }

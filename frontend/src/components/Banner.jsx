@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { bannerStyles, customStyles } from "../assets/dummyStyles";
 import { floatingIcons, features } from "../assets/dummyBanner";
-import { CircleCheckBig, Sparkle } from "lucide-react";
+import { CircleCheckBig, Sparkle, X } from "lucide-react";
 import BannerImg from "../assets/Bannerimage.jpg";
 import video from "../assets/BannerVideo.mp4";
 

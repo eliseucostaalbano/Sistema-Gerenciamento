@@ -2,37 +2,36 @@ import T1 from "../assets/T1.png"
 import T2 from "../assets/T2.png"
 import T3 from "../assets/T3.png"
 
-
 const testimonials = [
 {
 id: 1,
-name: "Maya Singh",
+nome: "Maya Singh",
 role: "Frontend Learner",
-message:
-"The React Masterclass helped me land my first internship. Projects were practical, and the instructor explained complex topics simply.",
+messagem:
+"A Masterclass de React me ajudou a conquistar meu primeiro estágio. Os projetos eram práticos, e o instrutor explicou tópicos complexos de forma simples.",
 avatar:T1,
 rating: 4.8,
-course: "React Masterclass"
+curso: "React Masterclass"
 },
 {
 id: 2,
-name: "Aarav Patel",
+nome: "Aarav Patel",
 role: "UI/UX Designer",
-message:
-"Design thinking modules were brilliant — hands-on tasks made the concepts stick. The UI examples were gorgeous and practical.",
+messagem:
+"Os módulos de design thinking foram brilhantes — as atividades práticas fizeram os conceitos realmente fixarem. Os exemplos de UI eram lindos e práticos.",
 avatar:T2,
 rating: 4.9,
-course: "Advanced UI Design"
+curso: "UI Design Avançado "
 },
 {
 id: 3,
-name: "Rohan Verma",
+nome: "Rohan Verma",
 role: "Fullstack Student",
-message:
-"I built a production-ready portfolio in 6 weeks. The community and project feedback pushed me forward — highly recommended.",
+messagem:
+"Construi um portfólio pronto para produção em 6 semanas. A comunidade e o feedback dos projetos me impulsionaram — altamente recomendado.",
 avatar:T3,
 rating: 4.7,
-course: "Fullstack Bootcamp"
+curso: "Fullstack Bootcamp"
 }
 ];
 
