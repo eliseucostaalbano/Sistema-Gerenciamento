@@ -6,7 +6,7 @@ const testimonials = [
 {
 id: 1,
 nome: "Maya Singh",
-role: "Frontend Learner",
+role: " Aprendiz Frontend",
 messagem:
 "A Masterclass de React me ajudou a conquistar meu primeiro estágio. Os projetos eram práticos, e o instrutor explicou tópicos complexos de forma simples.",
 avatar:T1,
@@ -26,7 +26,7 @@ curso: "UI Design Avançado "
 {
 id: 3,
 nome: "Rohan Verma",
-role: "Fullstack Student",
+role: "Estudante FullStack",
 messagem:
 "Construi um portfólio pronto para produção em 6 semanas. A comunidade e o feedback dos projetos me impulsionaram — altamente recomendado.",
 avatar:T3,

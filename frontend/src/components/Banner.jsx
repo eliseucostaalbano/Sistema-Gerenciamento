@@ -103,7 +103,7 @@ const Banner = () => {
           </div>
         </div>
       )}
-      <style jsx>{customStyles}</style>  
+      <style>{customStyles}</style>  
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: scale(0.95); }

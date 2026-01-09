@@ -269,7 +269,7 @@ const SobrePage = () => {
         </div>
       </section>
 
-      <style jsx>{aboutUsAnimations}</style>
+      <style>{aboutUsAnimations}</style>
     </div>
   );
 };
