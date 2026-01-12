@@ -23,7 +23,9 @@ const palestraSchema = new mongoose.Schema({
     },
     minutosTotais: { type: Number, default: 0 },
     capitulos: [capituloSchema],
-});
+}, 
+{_id:true}
+);
 
 const cursoSchema = new mongoose.Schema(
   {
