@@ -55,7 +55,7 @@ const cursoSchema = new mongoose.Schema(
     },
     palestrasTotal: { type: Number, default: 0 },
     palestras: [palestraSchema],
-    CursoTipo: { type: String, enum: ["regular", "top"], default: "regular" },
+    cursoTipo: { type: String, enum: ["regular", "top"], default: "regular" },
   },
   { timestamps: true }
 );
