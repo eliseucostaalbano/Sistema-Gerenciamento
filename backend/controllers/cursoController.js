@@ -1,4 +1,4 @@
-import Curso from "../models/CursoModel";
+import Curso from "../models/CursoModel.js";
 import { getAuth } from "@clerk/express";
 import fs from "fs";
 import path from "path";
@@ -197,7 +197,7 @@ export const criarCurso = async (req, res) => {
 
     palestras = palestras.map((pal) => {
       const palestra = { ...pal };
-      palestra.duracao = lecture.duracao || {};
+      palestra.duracao = palestra.duracao || {};
       palestra.duracao.horas = toNumber(palestra.duracao.horas);
       palestra.duracao.minutos = toNumber(palestra.duracao.minutos);
 
@@ -226,7 +226,7 @@ export const criarCurso = async (req, res) => {
     const courseObj = {
       nome: body.nome || "",
       professor: body.professor || "",
-      image: imagePath,
+      imagem: imagePath,
       rating: toNumber(body.rating, 0),
       precoTipo: body.precoTipo || "gratis",
       preco,
@@ -364,7 +364,7 @@ export const rateCursos = async (req, res) => {
   }
 };
 
-export const getMeurRating = async (req, res) => {
+export const getMeuRating = async (req, res) => {
   try {
     const { userId } = getAuth(req) || {};
     if (!userId) {

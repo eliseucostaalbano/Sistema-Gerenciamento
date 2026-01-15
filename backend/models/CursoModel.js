@@ -30,6 +30,7 @@ const palestraSchema = new mongoose.Schema({
 const cursoSchema = new mongoose.Schema(
   {
     nome: { type: String, required: true },
+    professor:{type: String, required:true},
     palestras: { type: String, required: true },
     imagem: { type: String },
     ratings: [
