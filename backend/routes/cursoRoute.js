@@ -31,7 +31,7 @@ cursoRouter.get("/:id", getCursosById);
 cursoRouter.get("/:cursoId/rating", getMeuRating);
 
 // rotas post
-cursoRouter.post("/", upload.single("image"), criarCurso);
+cursoRouter.post("/", upload.single("imagem"), criarCurso);
 cursoRouter.post("/:cursoId/rate", rateCursos);
 
 // rota delete

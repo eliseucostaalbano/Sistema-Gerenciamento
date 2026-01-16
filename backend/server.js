@@ -7,12 +7,12 @@ import cursoRouter from './routes/cursoRoute.js'
 
 const app = express()
 const port = 2000
-// {
-//   origin:["http://localhost:5173" ,"http://localhost:5174"],
-//   credentials: true,
-// }
+
 //MiddleWare
-app.use(cors())
+app.use(cors({
+  origin:["http://localhost:5173" ,"http://localhost:5174"],
+  credentials: true,
+}))
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 app.use(clerkMiddleware())

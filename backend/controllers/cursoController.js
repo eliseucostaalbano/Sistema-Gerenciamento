@@ -238,7 +238,7 @@ export const criarCurso = async (req, res) => {
       palestrasTotal: toNumber(body.palestrasTotal, palestras.length),
       palestras,
       cursoTipo: body.cursoTipo || "regular",
-      categoria: body.categori || null,
+      categoria: body.categoria || null,
       createdBy: body.createdBy || null,
     };
 
