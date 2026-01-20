@@ -3,7 +3,8 @@ import cors from 'cors'
 import 'dotenv/config'
 import { clerkMiddleware } from '@clerk/express'
 import { connectDB } from './config/db.js'
-import cursoRouter from './routes/cursoRoute.js'
+import cursoRouter from './routes/cursoRouter.js'
+import reservaRouter from './routes/reservaRouter.js'
 
 const app = express()
 const port = 2000
@@ -23,6 +24,7 @@ connectDB()
 
 //Routes 
 app.use('/api/curso', cursoRouter)
+app.use('/api/reserva', reservaRouter)
 
 //port
 app.get('/', (req, res) => {
