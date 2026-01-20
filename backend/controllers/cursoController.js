@@ -112,7 +112,7 @@ export const getCursosPublicos = async (req, res) => {
       q.limit(Number(limite));
     }
 
-    const cursos = q.lean();
+    const cursos = await q.lean();
 
     const mapear = cursos.map((c) => {
       const imagemURL = makeImageAbsolute(c.imagem || "", req);
@@ -164,10 +164,10 @@ export const getCursosById = async (req, res) => {
         success: false,
         error: "Não encontrado",
       });
-    curso.imagem = makeImageAbsolute(curso.imagem || "", res);
+    curso.imagem = makeImageAbsolute(curso.imagem || "", req);
     return res.json({
       success: true,
-      curso,
+      curso
     });
   } catch (error) {
     console.error("getCursosById erro:", error);
@@ -247,7 +247,7 @@ export const criarCurso = async (req, res) => {
     await curso.save();
 
     const retorno = curso.toObject();
-    retorno.imagem = makeImageAbsolute(retorno.imagem || "", res);
+    retorno.imagem = makeImageAbsolute(retorno.imagem || "", req);
     return res.status(201).json({
       success: true,
       curso: retorno,

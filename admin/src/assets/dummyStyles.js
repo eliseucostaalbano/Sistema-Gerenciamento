@@ -15,7 +15,7 @@ export const dashboardStyles = {
   statCard: "bg-gradient-to-br from-sky-50 to-sky-300 rounded-full md:p-3 lg:p-5 xl:p-5 shadow-lg p-3 sm:p-6 transform transition-all duration-300 animate-slide-up",
   statTitle: "text-gray-600 text-sm sm:text-base font-medium mb-1",
   statValue: "text-2xl sm:text-3xl font-bold text-gray-800",
-  statIconContainer: (color) => `${color} p-3 rounded-full text-white`,
+  statIconContainer: (cor) => `${cor} p-3 rounded-full text-white`,
   statIcon: "w-5 h-5 sm:w-6 sm:h-6",
 
   // Courses section

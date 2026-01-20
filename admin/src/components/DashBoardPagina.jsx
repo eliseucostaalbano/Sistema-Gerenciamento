@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
-import { dashboardStyles } from "../assets/dummyStyles"
-import { BadgeIndianRupee, BookMarked, ShoppingCart, Users } from "lucide-react";
+import { dashboardStyles } from "../assets/dummyStyles";
+import {BadgeIndianRupee, BookMarked, BookOpenText, Search, ShoppingCart, Users} from "lucide-react";
 
-const API_BASE = 'http://localhost:2000'
+const API_BASE = "http://localhost:2000";
 
 const fmtCurrency = (n) => {
   if (n == null) return "R$0";
-  const num = Number(n)
+  const num = Number(n);
   if (Number.isNaN(num)) return "R$0";
   return `R$${num}`;
 };
 
 const DashBoardPagina = () => {
+  console.log("dashboard")
   const [searchTerm, setSearchTerm] = useState("");
   const [statsData, setStatsData] = useState(null);
   const [coursesData, setCoursesData] = useState([]);
@@ -24,7 +25,7 @@ const DashBoardPagina = () => {
     BookMarked,
     BadgeIndianRupee,
   };
-  
+
   const buildStats = (backendStats) => {
     const totalBookings = backendStats?.totalBookings ?? 0;
     const totalRevenue = backendStats?.totalRevenue ?? 0;
@@ -60,11 +61,13 @@ const DashBoardPagina = () => {
   };
 
   useEffect(() => {
+    console.log('useefecct')
     let mounted = true;
     setLoading(true);
     setError(null);
 
     const fetchStats = () =>
+      console.log('stats')
       fetch(`${API_BASE}/api/reserva/stats`)
         .then((r) => r.json())
         .then((j) =>
@@ -80,6 +83,7 @@ const DashBoardPagina = () => {
 
     Promise.all([fetchStats(), fetchCourses()])
       .then(([stats, cursos]) => {
+        console.log('Cursos Do front:', cursos)
         if (!mounted) return;
 
         const topLookup = {};
@@ -93,7 +97,7 @@ const DashBoardPagina = () => {
             };
           });
 
-        const mapped = (cursos || []).map((c) => {
+        const mapeado = (cursos || []).map((c) => {
           const id = c._id ?? c.id ?? c.courseId ?? "";
           const nome = c.nome ?? c.titulo ?? "Curso Intuladado";
           const imagem = c.imagem ?? "";
@@ -112,8 +116,8 @@ const DashBoardPagina = () => {
               venda != null
                 ? fmtCurrency(venda)
                 : orig != null
-                ? fmtCurrency(orig)
-                : "Gratis";
+                  ? fmtCurrency(orig)
+                  : "Gratis";
           } else if (c.precoTipo && c.precoTipo !== "Gratis") {
             precoDisplay = "R$0";
           }
@@ -131,11 +135,13 @@ const DashBoardPagina = () => {
         });
 
         setStatsData(buildStats(stats));
-        setCoursesData(mapped);
+        setCoursesData(mapeado);
+        console.log("CURSOS RECEBIDOS DO BACKEND:",mapeado)
       })
       .catch((err) => {
         console.error("Dashboard fetch error:", err);
-        if (mounted) setError(String(err) || "Falha em carregar dashboard data");
+        if (mounted)
+          setError(String(err) || "Falha em carregar dashboard data");
       })
       .finally(() => mounted && setLoading(false));
 
@@ -145,10 +151,11 @@ const DashBoardPagina = () => {
   }, []);
 
   const stats = statsData || [
-    { titulo: "Reservas Totais",
-      value: 0, 
-      icone: iconMap.Users, 
-      cor: "indigo" 
+    {
+      titulo: "Reservas Totais",
+      value: 0,
+      icone: iconMap.Users,
+      cor: "indigo",
     },
     {
       titulo: "Ganhos",
@@ -177,25 +184,111 @@ const DashBoardPagina = () => {
   );
   return (
     <div className={dashboardStyles.pageContainer}>
-     <div className={dashboardStyles.backgroundPattern}></div>
+      <div className={dashboardStyles.backgroundPattern}></div>
 
-     <div className={dashboardStyles.contentContainer}>
-      {/* Header */}
-      <div className={dashboardStyles.headerContainer}>
-        <h1 className={dashboardStyles.headerTitle}>DashBoard Overview</h1>
-        <p className={dashboardStyles.headerSubtitle}> Bem vindo De volta. Aqui o que tem no seus cursos hoje</p>
-      </div>
-      
-      {error  && (
-        <div className={dashboardStyles.errorBanner} role="alert">
-          {error}
+      <div className={dashboardStyles.contentContainer}>
+        {/* Header */}
+        <div className={dashboardStyles.headerContainer}>
+          <h1 className={dashboardStyles.headerTitle}>DashBoard Overview</h1>
+          <p className={dashboardStyles.headerSubtitle}>
+            Bem vindo De volta. Aqui o que tem no seus cursos hoje
+          </p>
         </div>
-      )}
-      <div>
-      </div>
-     </div>
-    </div>
-  )
-}
 
-export default DashBoardPagina
+        {error && (
+          <div className={dashboardStyles.errorBanner} role="alert">
+            {error}
+          </div>
+        )}
+        {/* stats Section */}
+        <div className={dashboardStyles.statsGrid}>
+         {stats.map((stat,index) => {
+          const Icone = stat.icone || Users
+            return (
+              <div 
+              key={stat.titulo}
+              className={dashboardStyles.statCard}
+              style={{animationDelay: `${index * 100}ms`}}
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                   <p className={dashboardStyles.statTitle}>{stat.titulo}</p>
+                   <p className={dashboardStyles.statValue}>{stat.value}</p> 
+                  </div>
+                  <div className={dashboardStyles.statIconContainer?.(stat.cor)}>
+                   <Icone className={dashboardStyles.statIcon} />
+                  </div>
+                </div>
+              </div>
+            )
+         })}
+        </div>
+
+        {/* cursos Secition */}
+        <div className={dashboardStyles.coursesContainer}>
+         <div className={dashboardStyles.coursesHeader}>
+          <div className={dashboardStyles.coursesTitleContainer}>
+           <BookOpenText  className={dashboardStyles.coursesIcon}/>
+           <h2 className={dashboardStyles.coursesTitle}> Performace Cursos</h2>
+          </div>
+
+          <div className={dashboardStyles.searchContainer}>
+           <Search className={dashboardStyles.searchIcon}/>
+           <input 
+            type="text"
+            placeholder="Buscar Cursos ..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className={dashboardStyles.searchInput}
+           />
+          </div>
+         </div>
+
+         {/* tabela */}
+         <div className={dashboardStyles.tableContainer}>
+          <table className={dashboardStyles.table}>
+           <thead className={dashboardStyles.tableHead}>
+             <tr>
+                  <th className={dashboardStyles.tableHeader}>Curso</th>
+                  <th className={dashboardStyles.tableHeader}>Estudantes</th>
+                  <th className={dashboardStyles.tableHeader}>Preço</th>
+                  <th className={dashboardStyles.tableHeader}>Compras</th>
+                  <th className={dashboardStyles.tableHeader}>Ganhos</th>
+                </tr>
+           </thead>
+
+           <tbody className={dashboardStyles.tableBody}>
+             {filteredCourses.map((curso, index) => (
+              console.log(curso.imagem),
+              <tr key={curso.id|| `${index}`} 
+              className={dashboardStyles.tableRow}
+              style={{
+                animationDelay: `${index * 50 + 400}ms`
+              }}
+              >
+               <td className="px-4 sm:px-6 py-3 sm:py-4">
+                <div className="flex items-center">
+                  <img src={curso.imagem} alt={curso.nome} className={dashboardStyles.courseImage}/>
+                  <div>
+                     <p className={dashboardStyles.courseName}>
+                  {curso.nome}
+                </p>
+                <p className={dashboardStyles.courseInstructor}>
+                  {curso.instrutor}
+                </p>
+                  </div>
+                </div>
+               </td>
+              </tr>
+             ))}
+           </tbody>
+          </table>
+         </div>
+        </div>
+      </div>
+    </div>
+    
+  );
+};
+
+export default DashBoardPagina;
