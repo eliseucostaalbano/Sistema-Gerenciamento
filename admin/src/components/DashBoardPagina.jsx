@@ -12,7 +12,6 @@ const fmtCurrency = (n) => {
 };
 
 const DashBoardPagina = () => {
-  console.log("dashboard")
   const [searchTerm, setSearchTerm] = useState("");
   const [statsData, setStatsData] = useState(null);
   const [coursesData, setCoursesData] = useState([]);
@@ -34,7 +33,7 @@ const DashBoardPagina = () => {
 
     return [
       {
-        titulo: "Reservesas Totais",
+        titulo: "Reservas Totais",
         value: totalBookings,
         icone: iconMap.Users,
         cor: "indigo",
@@ -61,20 +60,19 @@ const DashBoardPagina = () => {
   };
 
   useEffect(() => {
-    console.log('useefecct')
     let mounted = true;
     setLoading(true);
     setError(null);
 
-    const fetchStats = () =>
-      console.log('stats')
+    const fetchStats = () => {
       fetch(`${API_BASE}/api/reserva/stats`)
         .then((r) => r.json())
         .then((j) =>
           j.success ? j.status : Promise.reject(j.messagem || "Status error")
         );
+      }
 
-    const fetchCourses = () =>
+    const fetchCourses = () => 
       fetch(`${API_BASE}/api/curso`)
         .then((r) => r.json())
         .then((j) =>
@@ -83,7 +81,6 @@ const DashBoardPagina = () => {
 
     Promise.all([fetchStats(), fetchCourses()])
       .then(([stats, cursos]) => {
-        console.log('Cursos Do front:', cursos)
         if (!mounted) return;
 
         const topLookup = {};
@@ -136,7 +133,6 @@ const DashBoardPagina = () => {
 
         setStatsData(buildStats(stats));
         setCoursesData(mapeado);
-        console.log("CURSOS RECEBIDOS DO BACKEND:",mapeado)
       })
       .catch((err) => {
         console.error("Dashboard fetch error:", err);
@@ -259,7 +255,6 @@ const DashBoardPagina = () => {
 
            <tbody className={dashboardStyles.tableBody}>
              {filteredCourses.map((curso, index) => (
-              console.log(curso.imagem),
               <tr key={curso.id|| `${index}`} 
               className={dashboardStyles.tableRow}
               style={{
@@ -279,10 +274,50 @@ const DashBoardPagina = () => {
                   </div>
                 </div>
                </td>
+               <td className={dashboardStyles.studentsCell}>
+                <div className="flex items-center text-gray-700">
+                  <span className={dashboardStyles.studentsText}>
+                    {curso.estudantes}
+                  </span>
+                </div>
+               </td>
+               <td className={dashboardStyles.priceCell}>
+                {curso.preco}
+               </td>
+               <td>
+                <div className={dashboardStyles.purchasesContainer}>
+                  <ShoppingCart className={dashboardStyles.purchasesIcon} />
+                  <span className={dashboardStyles.purchasesText}>
+                    {curso.compras}
+                  </span>
+                </div>
+               </td>
+               <td className={dashboardStyles.earningsCell}>
+                {curso.ganhos}
+               </td>
               </tr>
              ))}
            </tbody>
           </table>
+          {filteredCourses.length === 0 && !loading && (
+            <div className={dashboardStyles.emptyState}>
+              <Search className={dashboardStyles.emptyIcon}/>
+              <p className={dashboardStyles.emptyText}>
+                Nenhum curso encontrado
+              </p>
+
+              <button onClick={() => setSearchTerm("")} 
+              className={dashboardStyles.clearButton}>
+                Limpar busca
+              </button>
+            </div>
+          )}
+
+          {loading && (
+            <div className={dashboardStyles.loadingOverlay}>
+             <div className={dashboardStyles.loadingSpinner} />
+            </div>
+          )}
          </div>
         </div>
       </div>
